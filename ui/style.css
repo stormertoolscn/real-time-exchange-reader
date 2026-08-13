@@ -555,7 +555,6 @@ html[data-theme="dark"] .theme-pop-item.active { color: #8AB4FF; }
   transition: background 0.1s var(--ease), color 0.1s var(--ease);
 }
 .win-btn:hover { background: var(--win-btn-hover); color: var(--text-primary); }
-.win-btn.win-close:hover { background: #E81123; color: #fff; }
 
 /* ---------- 汇率大卡 ---------- */
 #hero { padding: 10px var(--pad-x) 0; }

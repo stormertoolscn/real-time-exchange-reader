@@ -455,6 +455,24 @@ def _apply_material(w, theme_name="Dark", mode=None):
         print("材质设置失败，回退普通背景:", e)
 
 
+def _enable_resize_borders(hwnd):
+    """给无边框窗口加回原生缩放边框：四边/四角均可鼠标拖拽调整大小。"""
+    try:
+        import ctypes
+        user32 = ctypes.windll.user32
+        GWL_STYLE = -16
+        WS_THICKFRAME = 0x00040000
+        style = user32.GetWindowLongW(hwnd, GWL_STYLE)
+        user32.SetWindowLongW(hwnd, GWL_STYLE, style | WS_THICKFRAME)
+        user32.SetWindowPos(
+            hwnd, None, 0, 0, 0, 0,
+            0x0001 | 0x0002 | 0x0004 | 0x0020,  # NOSIZE|NOMOVE|NOZORDER|FRAMECHANGED
+        )
+        return True
+    except Exception:
+        return False
+
+
 def _probe_black(hwnd):
     """取窗口中心像素：纯黑/近黑 = 渲染卡死（即使 JS 心跳还活着）。"""
     try:
@@ -571,6 +589,9 @@ def main():
 
     # 页面加载完成后窗口必已创建，此时应用亚克力材质
     def _on_loaded(window):
+        hwnd = _get_hwnd(window) or _find_hwnd_by_title(APP_TITLE)
+        if hwnd:
+            _enable_resize_borders(hwnd)  # 四边可缩放
         _apply_material(window, api._theme)
 
     window.events.loaded += _on_loaded
