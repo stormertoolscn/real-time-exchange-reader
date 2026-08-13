@@ -402,7 +402,7 @@
     setTheme(state.theme);
     renderPairs();
     updateHero();
-    appendLog("汇率小宝 v" + (initial && initial.version ? initial.version : "2.0.0") + " 就绪：点击「抓取最新」同步汇率", "");
+    appendLog("汇率小宝 v" + (initial && initial.version ? initial.version : "2.0.1") + " 就绪：点击「抓取最新」同步汇率", "");
     startHeartbeat();
     selfCheck();
     setTimeout(selfCheck, 1000);  // 迟到渲染再查一次

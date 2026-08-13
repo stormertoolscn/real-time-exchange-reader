@@ -15,7 +15,7 @@ from core import rate as rate_core
 from core import config
 
 APP_TITLE = "汇率小宝"
-APP_VERSION = "2.0.0"
+APP_VERSION = "2.0.1"
 
 # 浅色系主题（窗口材质 / 标题栏按深色模式处理时用）
 LIGHT_THEMES = {"Light", "github", "apple", "dsa", "chrome"}

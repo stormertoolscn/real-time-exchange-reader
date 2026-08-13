@@ -28,7 +28,7 @@ py app.py
 .\build.ps1
 ```
 
-产物在 `dist\汇率小宝 v2.0.0.exe`。
+产物在 `dist\汇率小宝 v2.0.1.exe`。
 
 ## 技术栈
 

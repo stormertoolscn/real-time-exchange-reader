@@ -25,9 +25,9 @@ python -m PyInstaller `
 
 if (Test-Path "dist\HuilvXiaobao2.exe") {
   Copy-Item "dist\HuilvXiaobao2.exe" "dist\汇率小宝 v2.exe" -Force
-  Copy-Item "dist\HuilvXiaobao2.exe" "dist\汇率小宝 v2.0.0.exe" -Force
+  Copy-Item "dist\HuilvXiaobao2.exe" "dist\汇率小宝 v2.0.1.exe" -Force
   $size = (Get-Item "dist\HuilvXiaobao2.exe").Length / 1MB
-  Write-Host ("==> 完成: dist\HuilvXiaobao2.exe / dist\汇率小宝 v2.0.0.exe ({0:N1} MB)" -f $size) -ForegroundColor Green
+  Write-Host ("==> 完成: dist\HuilvXiaobao2.exe / dist\汇率小宝 v2.0.1.exe ({0:N1} MB)" -f $size) -ForegroundColor Green
 } else {
   Write-Host "==> 打包失败" -ForegroundColor Red
   exit 1
